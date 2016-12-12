@@ -31,7 +31,7 @@ https://github.https://github.com/IdeaSpaceVR/aframe-ui-modal-component
 
 ### Usage
 
-[Demo on JSBin](http://output.jsbin.com/fubuku)
+[Demo](http://rolanddubois.com/webvr/shake2show/)
 
 #### Browser Installation
 
