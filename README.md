@@ -30,7 +30,7 @@ Install and use by directly including the [browser files](dist):
 <head>
   <title>My A-Frame Scene</title>
   <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
-  <script src="https://rawgit.com/rdub80/aframe-text-component/master/dist/aframe-shake2show-component.min.js"></script>
+  <script src="https://rawgit.com/rdub80/aframe-shake2show-component/master/master/dist/aframe-shake2show-component.min.js"></script>
 </head>
 
 <body>
@@ -53,6 +53,21 @@ Then register and use.
 ```js
 require('aframe');
 require('aframe-shake2show-component');
+```
+
+#### In browser testing
+
+For console testing on desktop trigger shake event
+
+```js
+<script>
+var triggerShake = document.createEvent("HTMLEvents");
+triggerShake.initEvent("shake", true, true);
+
+function shakeMe(){
+  document.dispatchEvent(triggerShake);
+}
+</script> 
 ```
 
 ### Dependencies
