@@ -2,6 +2,8 @@
 
 _Tap_ the side of the smart device (qick shake trigger) to display a UI Modal for [A-Frame](https://aframe.io) VR.
 
+![shake2show-illustration](https://cloud.githubusercontent.com/assets/347570/21116597/319524b0-c084-11e6-8d09-6ad5db860ed5.gif)
+
 --- 
 
 Integrated _Shake.js_ - JavaScript plugin for mobile web browsers using device accelerometer.
@@ -29,7 +31,7 @@ https://github.https://github.com/IdeaSpaceVR/aframe-ui-modal-component
 
 ### Usage
 
-[Demo on JSBin](http://output.jsbin.com/fubuku/1)
+[Demo on JSBin](http://output.jsbin.com/fubuku)
 
 #### Browser Installation
 
