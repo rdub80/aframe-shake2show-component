@@ -39,7 +39,7 @@ Install and use by directly including the [browser files](dist):
 <head>
   <title>My A-Frame Scene</title>
   <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
-  <script src="https://rawgit.com/rdub80/aframe-shake2show-component/master/master/dist/aframe-shake2show-component.min.js"></script>
+  <script src="https://rawgit.com/rdub80/aframe-shake2show-component/master/dist/aframe-shake2show-component.min.js"></script>
 </head>
 
 <body>
