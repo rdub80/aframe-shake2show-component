@@ -1,15 +1,22 @@
 ## aframe-shake2show-component
 
-Tap the side of the smart device (qick shake) as trigger to display a UI Modal for [A-Frame](https://aframe.io) VR.
+_Tap_ the side of the smart device (qick shake trigger) to display a UI Modal for [A-Frame](https://aframe.io) VR.
 
-Integrated Shake.js - JavaScript plugin for mobile web browsers using device accelerometer.
+--- 
+
+Integrated _Shake.js_ - JavaScript plugin for mobile web browsers using device accelerometer.
+
 Author: Alex Gibson
+
 https://github.com/alexgibson/shake.js
 
-Modified aframe-ui-modal-component
+Modified _aframe-ui-modal-component_
+
 Author: IdeaSpace
+
 https://github.https://github.com/IdeaSpaceVR/aframe-ui-modal-component
 
+---
 
 ## Properties
 
@@ -21,6 +28,8 @@ https://github.https://github.com/IdeaSpaceVR/aframe-ui-modal-component
 
 
 ### Usage
+
+[Demo on JSBin](http://output.jsbin.com/fubuku/1)
 
 #### Browser Installation
 
@@ -35,7 +44,8 @@ Install and use by directly including the [browser files](dist):
 
 <body>
   <a-scene>
-    <a-box shake2show visible="false"></a-box>
+  	<a-entity shake2show visible="false"></a-entity>
+  	<a-entity camera look-controls></a-entity>
   </a-scene>
 </body>
 ```
@@ -71,6 +81,8 @@ function shakeMe(){
 ```
 
 ### Dependencies
+
+You need a [camera](https://aframe.io/docs/0.3.0/components/camera.html) component in your scene. 
 
 Your web browser must support the `devicemotion` event for this plugin to work. Shake.js uses built-in feature detection to determine if it can run in your web browser. It will terminate silently on non-supporting browsers.
 
