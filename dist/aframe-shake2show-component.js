@@ -193,11 +193,20 @@
 	        trigger: {
 	            default: 'shake'
 	        },
+	        threshold: {
+	        	default: 5
+            },
+            timeout: {
+            	default: 500
+	        },
 	        zpos: {
 	            default: -0.85
 	        },
-	        threshold: {
-	        	default: 5
+	        xoffset: {
+	            default: 0
+	        },
+	        yoffset: {
+	            default: 0
 	        }
 	    },
 
@@ -205,25 +214,37 @@
 
 		    //create a new instance of shake.js.
 		    var myShakeEvent = new Shake({
-		        threshold: this.data.threshold
+		        threshold: this.data.threshold,
+		        timeout: this.data.timeout
 		    });
 
 		    // start listening to device motion
 		    myShakeEvent.start();	        
 
-	        var scene = document.querySelector('a-scene');
-    		window.addEventListener(this.data.trigger, this.eventHandler.bind(this));
+	        if(this.data.trigger === "shake"){
+    			window.addEventListener(this.data.trigger, this.eventHandler.bind(this));
+    		}else if(this.data.trigger === "click"){
+    			document.querySelector('a-scene').addEventListener(this.data.trigger, this.eventHandler.bind(this));
+    		}
 
 	        this.cameraEl = document.querySelector('a-entity[camera]');
 
-	        this.yaxis = new THREE.Vector3(0, 1, 0);
-	        this.zaxis = new THREE.Vector3(0, 0, 1);
+	        if(this.cameraEl){
 
-	        this.pivot = new THREE.Object3D();
-	        this.el.object3D.position.set(0, this.cameraEl.object3D.getWorldPosition().y, this.data.zpos);
+		        this.initHeight =  Math.round(this.cameraEl.object3D.getWorldPosition().y * 100) / 100;
 
-	        this.el.sceneEl.object3D.add(this.pivot);
-	        this.pivot.add(this.el.object3D);
+		        this.yaxis = new THREE.Vector3(0, 1, 0);
+		        this.zaxis = new THREE.Vector3(0, 0, 1);
+
+		        this.pivot = new THREE.Object3D();
+		        this.el.object3D.position.set(this.data.xoffset, this.initHeight + this.data.yoffset, this.data.zpos);
+
+		        this.el.sceneEl.object3D.add(this.pivot);
+		        this.pivot.add(this.el.object3D);
+	      	
+	      	}else{
+	      		console.log("Please add a camera to your scene.");
+	      	}
 
 	    },
 
@@ -231,16 +252,28 @@
 
 	        if (this.el.getAttribute('visible') === false) {
 
-	            var directionY = this.zaxis.clone();
-	            directionY.applyQuaternion(this.cameraEl.object3D.quaternion);
-	            var ycomponent = this.yaxis.clone().multiplyScalar(directionY.dot(this.yaxis));
-	            directionY.sub(ycomponent);
-	            directionY.normalize();
+		        var direction = this.zaxis.clone();
+	            direction.applyQuaternion(this.cameraEl.object3D.quaternion);
+	            var ycomponent = this.yaxis.clone().multiplyScalar(direction.dot(this.yaxis));
+	            direction.sub(ycomponent);
+	            direction.normalize();
 
-	            this.pivot.quaternion.setFromUnitVectors(this.zaxis, directionY);
-	            this.pivot.position.copy(this.cameraEl.object3D.getWorldPosition());
+		        console.log("++++++Quaternion"+this.cameraEl.object3D.quaternion);
+	            
+	            this.pivot.quaternion.setFromUnitVectors(this.zaxis, direction);
+	            //this.pivot.position.copy(this.cameraEl.object3D.getWorldPosition());
 
+	            var xposition = this.cameraEl.object3D.getWorldPosition().x;
+	            var yposition = Math.round(this.cameraEl.object3D.getWorldPosition().y * 100) / 100;
+	            var zposition = this.cameraEl.object3D.getWorldPosition().z;
+
+	            if(this.initHeight === yposition){
+		            this.pivot.position.set(xposition, 0, zposition);
+		        }else{
+		            this.pivot.position.set(xposition, yposition, zposition);
+		        }
 	            this.el.setAttribute('visible', true);
+
 
 	        } else if (this.el.getAttribute('visible') === true) {
 
