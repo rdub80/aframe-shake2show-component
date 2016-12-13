@@ -16,17 +16,20 @@ Modified _aframe-ui-modal-component_
 
 Author: IdeaSpace
 
-https://github.https://github.com/IdeaSpaceVR/aframe-ui-modal-component
+https://github.com/IdeaSpaceVR/aframe-ui-modal-component
 
 ---
 
 ## Properties
 
-| Property       | Description                                            | Default Value |
-| --------       | ------------------------------------------------------ | ------------- |
-| trigger        | Event to make dialog or menu visible.                  | 'shake'       |
-| zpos           | Position the dialog or menu on the z-axis. In meters.  | -0.85         |
-| threshold      | Default quick shake strength threshold                 | 5             |
+| Property   | Description                                                    | Default Value |
+| --------   | ------------------------------------------------------------   | ------------- |
+| trigger    | Event to make dialog or menu visible: 'shake' or 'click'       | 'shake'       |
+| threshold  | Default for shake velocity threshold for shake to register     | 5             |
+| timeout    | Default for shake interval between events.                     | 500           |
+| zpos       | Position the dialog or menu on the z-axis. In meters.          | -0.85         |
+| xoffset    | Position offset value on the x-axis from center. In meters.    | 0             |
+| yoffset    | Position offset value on the y-axis from center. In meters.    | 0             |
 
 
 ### Usage
