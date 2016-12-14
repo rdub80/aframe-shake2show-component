@@ -214,17 +214,25 @@
 
 		    //create a new instance of shake.js.
 		    var myShakeEvent = new Shake({
+
 		        threshold: this.data.threshold,
 		        timeout: this.data.timeout
+		    
 		    });
 
 		    // start listening to device motion
 		    myShakeEvent.start();	        
 
-	        if(this.data.trigger === "shake"){
+	        if ( this.data.trigger === "shake" ){
+
     			window.addEventListener(this.data.trigger, this.eventHandler.bind(this));
-    		}else if(this.data.trigger === "click"){
+    		
+    		} else if( this.data.trigger === "click" ){
+    		
     			document.querySelector('a-scene').addEventListener(this.data.trigger, this.eventHandler.bind(this));
+    		
+    		} else {
+	      		console.log("Trigger not supported. choose either 'shake' or 'click'!");    			
     		}
 
 	        this.cameraEl = document.querySelector('a-entity[camera]');
@@ -258,20 +266,20 @@
 	            direction.sub(ycomponent);
 	            direction.normalize();
 
-		        console.log("++++++Quaternion"+this.cameraEl.object3D.quaternion);
-	            
 	            this.pivot.quaternion.setFromUnitVectors(this.zaxis, direction);
-	            //this.pivot.position.copy(this.cameraEl.object3D.getWorldPosition());
 
 	            var xposition = this.cameraEl.object3D.getWorldPosition().x;
-	            var yposition = Math.round(this.cameraEl.object3D.getWorldPosition().y * 100) / 100;
+	            var yposition = (Math.round(this.cameraEl.object3D.getWorldPosition().y * 100) / 100);
 	            var zposition = this.cameraEl.object3D.getWorldPosition().z;
 
-	            if(this.initHeight === yposition){
-		            this.pivot.position.set(xposition, 0, zposition);
+	            if(this.initHeight === yposition && this.initHeight !== 0){
+					yposition = 0
 		        }else{
-		            this.pivot.position.set(xposition, yposition, zposition);
+		        	yposition = yposition - this.initHeight;
 		        }
+
+		        this.pivot.position.set(xposition, yposition, zposition);
+	            
 	            this.el.setAttribute('visible', true);
 
 
