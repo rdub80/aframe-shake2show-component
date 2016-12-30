@@ -279,12 +279,14 @@
 		        }
 
 		        this.pivot.position.set(xposition, yposition, zposition);
-	            
+
+	            this.el.setAttribute('scale', '1 1 1');	            
 	            this.el.setAttribute('visible', true);
 
 
 	        } else if (this.el.getAttribute('visible') === true) {
 
+	            this.el.setAttribute('scale', '0.00001 0.00001 0.00001');
 	            this.el.setAttribute('visible', false);
 	        }
 
