@@ -43,7 +43,7 @@ Install and use by directly including the [browser files](dist):
 ```html
 <head>
   <title>My A-Frame Scene</title>
-  <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
+  <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
   <script src="https://rawgit.com/rdub80/aframe-shake2show-component/master/dist/aframe-shake2show-component.min.js"></script>
 </head>
 
@@ -87,7 +87,7 @@ function shakeMe(){
 
 ### Dependencies
 
-You need a [camera](https://aframe.io/docs/0.3.0/components/camera.html) component in your scene. 
+You need a [camera](https://aframe.io/docs/0.7.0/components/camera.html) component in your scene. 
 
 Your web browser must support the `devicemotion` event for this plugin to work. Shake.js uses built-in feature detection to determine if it can run in your web browser. It will terminate silently on non-supporting browsers.
 

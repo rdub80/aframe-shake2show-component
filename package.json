@@ -1,16 +1,13 @@
 {
   "name": "aframe-shake2show-component",
-  "version": "0.3.0",
+  "version": "1.0.1",
   "description": "Using shake.js to display toggle UI modal",
+  "author": "Roland Dubois <contact@rolanddubois.com>",   
+  "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "build": "browserify examples/main.js -o examples/build.js",
-    "dev": "budo examples/main.js:build.js --dir examples --port 8008 --live --open",
-    "dist": "webpack index.js dist/aframe-text-component.js && webpack -p index.js dist/aframe-text-component.min.js",
-    "postpublish": "npm run dist",
-    "preghpages": "npm run build && rm -rf gh-pages && cp -r examples gh-pages",
-    "ghpages": "npm run preghpages && ghpages -p gh-pages",
-    "test": "karma start ./tests/karma.conf.js"
+    "dist": "webpack index.js dist/aframe-shake2show-component.js && webpack -p index.js dist/aframe-shake2show-component.min.js",
+    "postpublish": "npm run dist"
   },
   "repository": {
     "type": "git",
@@ -18,37 +15,22 @@
   },
   "keywords": [
     "aframe",
+    "a-frame",
     "aframe-component",
-    "layout",
     "aframe-vr",
+    "aframe-gui",
     "vr",
-    "aframe-layout",
+    "webgl",
+    "webvr",
     "mozvr",
-    "webvr"
+    "layout",
+    "aframe-layout"
   ],
-  "author": "Roland Dubois <contact@rolanddubois.com>",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/rdub80/aframe-shake2show-component/issues"
   },
   "homepage": "https://github.com/rdub80/aframe-shake2show-component#readme",
   "devDependencies": {
-    "aframe": "^0.2.0",
-    "browserify": "^12.0.1",
-    "browserify-css": "^0.8.3",
-    "budo": "^8.1.0",
-    "chai": "^3.4.1",
-    "chai-shallow-deep-equal": "^1.3.0",
-    "ghpages": "0.0.3",
-    "karma": "^0.13.15",
-    "karma-browserify": "^4.4.2",
-    "karma-chai-shallow-deep-equal": "0.0.4",
-    "karma-firefox-launcher": "^0.1.7",
-    "karma-mocha": "^0.2.1",
-    "karma-mocha-reporter": "^1.1.3",
-    "karma-sinon-chai": "^1.1.0",
-    "mocha": "^2.3.4",
-    "watchify": "^3.6.1",
     "webpack": "^1.12.9"
   }
 }
