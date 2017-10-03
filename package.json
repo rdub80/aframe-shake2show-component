@@ -2,7 +2,7 @@
   "name": "aframe-shake2show-component",
   "version": "1.0.2",
   "description": "Using shake.js to display toggle UI modal",
-  "author": "Roland Dubois <contact@rolanddubois.com>",   
+  "author": "Roland Dubois <contact@rolanddubois.com>",
   "license": "MIT",
   "main": "index.js",
   "scripts": {
@@ -32,5 +32,8 @@
   "homepage": "https://github.com/rdub80/aframe-shake2show-component#readme",
   "devDependencies": {
     "webpack": "^1.12.9"
+  },
+  "dependencies": {
+    "shake.js": "1.2.2"
   }
 }
