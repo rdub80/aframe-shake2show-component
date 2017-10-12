@@ -2,7 +2,7 @@
 
 _Tap_ the side of the smart device (qick shake trigger) to display a UI Modal for [A-Frame](https://aframe.io) VR.
 
-![shake2show-illustration](https://cloud.githubusercontent.com/assets/347570/21116597/319524b0-c084-11e6-8d09-6ad5db860ed5.gif)
+![shake2show-illustration](illustration.gif)
 
 --- 
 
